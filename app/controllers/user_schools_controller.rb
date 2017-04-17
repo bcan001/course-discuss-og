@@ -1,0 +1,4 @@
+class UserSchoolsController < ApplicationController
+
+
+end
