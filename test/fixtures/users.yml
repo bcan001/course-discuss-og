@@ -1,0 +1,24 @@
+<% created_at = Time.now %>
+<% updated_at = Time.now + 5 %>
+<% password = "password" %>
+
+ben:
+  first_name: Ben
+  last_name: Caneba
+  email: bcaneba@gmail.com
+  phone: 9062314010
+  username: bcaneba
+  tutor: false
+  created_at: <%= created_at %>
+  updated_at: <%= updated_at %>
+
+george:
+  first_name: George
+  last_name: Costanza
+  email: gcostanza@gmail.com
+  phone: 9062314010
+  username: gcostanza
+  tutor: false
+  password_digest: <%= password %>
+  created_at: <%= created_at %>
+  updated_at: <%= updated_at %>
