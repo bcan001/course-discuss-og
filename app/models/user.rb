@@ -8,5 +8,6 @@ class User < ApplicationRecord
 	validates :username, presence: true
 	validates :tutor, presence: true
 
-
+	has_many :posts, dependent: :destroy
+	
 end

@@ -1,0 +1,1 @@
+http://api.rubyonrails.org/v3.2/classes/ActiveRecord/Fixtures.html

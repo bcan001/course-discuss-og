@@ -8,7 +8,7 @@ class ActiveSupport::TestCase
 	# self.use_transactional_fixtures = true
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   # fixtures :all
-  fixtures :users
+  fixtures :users, :posts
 
   # Add more helper methods to be used by all tests here...
 end
