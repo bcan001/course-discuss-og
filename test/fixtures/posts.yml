@@ -1,0 +1,6 @@
+example_post:
+  id: 1
+  title: Example
+  description: This is an example post
+  user: george
+

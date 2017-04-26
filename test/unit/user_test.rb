@@ -12,5 +12,15 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "a user should have a post based on user_id primary key" do
+    user = users(:george)
+
+    if user.posts.any?
+      assert true 
+    else
+      assert false
+    end
+  end
+
 
 end
