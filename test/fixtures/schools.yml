@@ -1,0 +1,11 @@
+michigan_state:
+  name: Michigan State
+  location: East Lansing
+  state: MI
+  user: ben
+
+university_of_texas:
+  name: University of Texas
+  location: Austin
+  state: TX
+  user: george

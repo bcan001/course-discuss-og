@@ -1,6 +1,11 @@
-example_post:
+example_post_1:
   id: 1
-  title: Example
+  title: Example Post 1
+  description: This is an example post
+  user: ben
+
+example_post_2:
+  id: 2
+  title: Example Post 2
   description: This is an example post
   user: george
-

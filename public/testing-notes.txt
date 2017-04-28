@@ -1,1 +1,28 @@
 http://api.rubyonrails.org/v3.2/classes/ActiveRecord/Fixtures.html
+
+
+http://buildingrails.com/a/rails_unit_testing_with_minitest_for_beginners
+
+A list of Assertions
+Rails has quite a few assertions, though here is what I find myself using on a regular basis.
+With these few assertions, it is easy to test what your models are generating.
+assert( test, [msg] ) Ensures that test is true.
+
+assert post.valid?, 'The post was not valid when all parameters were supplied'
+assert_not( test, [msg] ) Ensures that test is false
+assert_not post.valid?, 'The post should not be valid when missing body'
+assert_equal( expected, actual, [msg] ) Ensures that expected == actual is true.
+assert_equal 'Post title', post.title, "Post title didn't match"
+assert_not_nil (test, message = nil) Ensures that obj.nil? is false.
+assert_not_nil post.title, 'Post title should not be nil'
+
+post = Post.find(1)
+assert_not_nil post, "Post wasn't found"
+
+What to test?
+While it is ideal to test everything, generally this isn't possible, so I try to focus on testing the end result of my models.
+- I always test my validations as these are important to the health of your application, you don't want an accidental deletion or typo to ruin your application.
+- If you get an error in your application, before fixing it in the code, first write a test (that will fail) and then when you fix it, the test will pass.
+- Test any callbacks such as before_create to ensure that your data is being generated as you expected.
+- Test any third party Gems that your models rely on. You never know when a new version of a Gem will do things differently or break your application.
+

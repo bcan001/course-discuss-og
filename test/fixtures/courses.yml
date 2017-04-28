@@ -1,0 +1,9 @@
+calculus_1:
+  name: Calculus 1
+  description: First Calculus course for college students
+  school: michigan_state
+
+calculus_2:
+  name: Calculus 2
+  description: Second Calculus course for college students
+  school: university_of_texas
