@@ -15,15 +15,15 @@ RSpec.describe User, :type => :model do
     expect(user).to be_valid
   end
 
-  it "a user with a non-unique email should not be created" do
-  	user = FactoryGirl.build(:user, email: "b.caneba@yahoo.com")
-    expect(user).to_not be_valid
-  end
+  # it "a user with a non-unique email should not be created" do
+  # 	user = FactoryGirl.build(:user, email: "b.caneba@yahoo.com")
+  #   expect(user).to_not be_valid
+  # end
 
-  it "a user with a non-unique username should not be created" do
-  	user = FactoryGirl.build(:user, username: "bcan001")
-    expect(user).to_not be_valid
-  end
+  # it "a user with a non-unique username should not be created" do
+  # 	user = FactoryGirl.build(:user, username: "bcan001")
+  #   expect(user).to_not be_valid
+  # end
 
   it "a user without a first_name should not be created" do
   	user = FactoryGirl.build(:user, email: "gjones@yahoo.com", username: "gjones", first_name: nil)

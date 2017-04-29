@@ -6,7 +6,7 @@ FactoryGirl.define do
     phone "677-123-6788"
     username "bcaneba"
     password "password"
-    tutor true
+    tutor "true"
   end
 end
 
