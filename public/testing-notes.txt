@@ -67,6 +67,17 @@ bundle exec rspec spec/controllers/accounts_controller_spec.rb
 bundle exec rspec spec/controllers/accounts_controller_spec.rb:8
 
 
+types of specs (in spec folder)
+- models 
+- controllers
+- requests
+- features
+- mailers
+- jobs
+- views
+- routing
+- helpers
+
 
 
 

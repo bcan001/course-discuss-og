@@ -7,7 +7,6 @@ class School < ApplicationRecord
 	has_many :courses, dependent: :destroy
 	has_many :posts, dependent: :destroy
 
-
 	validates :name, presence: true, uniqueness: true
 	validates :location, presence: true
 	validates :state, presence: true
