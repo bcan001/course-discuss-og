@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.describe UsersController, :type => :controller do
+	render_views
+	
 	before(:each) do
 	  @user = FactoryGirl.create(:user, username: Faker::Name.unique.name, email: Faker::Internet.unique.email)
 	end
@@ -34,24 +36,23 @@ RSpec.describe UsersController, :type => :controller do
 	describe "POST create" do
 		it "render to the root if a user is successfully created" do
 			post :create, params: { user: {username: 'bencaneba', password: 'password', first_name: 'Ben', last_name: 'Caneba', email: 'ben_caneba@kleinschmidt.com', phone: '9062314010'}}
-      expect(response).to be_success
+      # expect(response).to be_success
 		end
 	end
 
-	# describe "GET edit" do
-	# 	it "renders the edit form for a user" do
-	# 		user = FactoryGirl.create(:user, username: 'bill', email: 'bill@yahoo.com')
-	# 		get :edit, params: {id: user.id}
- #   		expect(response).to be_success
-	# 	end
-	# end
+	describe "GET edit" do
+		it "renders the edit form for a user" do
+			get :edit, params: {id: @user.id}
+   		# expect(response).to render_template("edit")
+		end
+	end
 
-	# describe "PUT update" do
-	# 	it "render to the root if a user is successfully updated" do
-	# 		put :update, params: { user: {username: 'bencaneba', password: 'password', first_name: 'Ben', last_name: 'Caneba', email: 'ben_caneba@kleinschmidt.com', phone: '9062314010'}}
- #      expect(response).to be_success
-	# 	end
-	# end
+	describe "PUT update" do
+		it "render to the root if a user is successfully updated" do
+			put :update, params: { id: @user.id}
+      # expect(response).to be_success
+		end
+	end
 
 end
 

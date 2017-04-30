@@ -6,7 +6,6 @@ class User < ApplicationRecord
 	validates :email, presence: true, uniqueness: true
 	validates :phone, presence: true
 	validates :username, presence: true, uniqueness: true
-	validates :tutor, presence: true
 
 	# User has many posts
 	has_many :posts, dependent: :destroy
