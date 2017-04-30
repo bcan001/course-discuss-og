@@ -40,10 +40,7 @@ RSpec.describe User, :type => :model do
     expect(user).to_not be_valid
 	end
 
-	it "a user without a tutor should not be created" do
-  	user = FactoryGirl.build(:user, email: "medasin@yahoo.com", username: "medasin", tutor: nil)
-    expect(user).to_not be_valid
-	end
+
 
 end
 
