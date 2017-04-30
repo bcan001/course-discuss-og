@@ -1,0 +1,22 @@
+<% if flash[:notice] %>
+  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+<% end %>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<h3>Create New School</h3>
+	</div>
+</div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<div id='new-school'>
+			<%= form_for @school do |f| %>
+			  <p><%= f.text_field :name, :size => 40, :placeholder => "School Name"  %></p>
+			  <p><%= f.text_field :location, :size => 40, :placeholder => "City"  %></p>
+			  <p><%= f.text_field :state, :size => 40, :placeholder => "State"  %></p>
+			  <p><%= f.submit 'Create New School', class: "btn btn-primary" %></p>
+			<% end %>
+		</div>
+	</div>
+</div>

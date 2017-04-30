@@ -3,17 +3,19 @@ require "rails_helper"
 RSpec.describe UsersController, :type => :controller do
 	render_views
 	
-	before(:each) do
-	  @user = FactoryGirl.create(:user, username: Faker::Name.unique.name, email: Faker::Internet.unique.email)
+	before(:each) do |example|
+		unless example.metadata[:skip_user_create]
+	  	@user = FactoryGirl.create(:user, username: Faker::Name.unique.name, email: Faker::Internet.unique.email)
+	  end
 	end
 
 	describe "GET index" do
-    it 'show a list of all users successfully' do
+    it 'it renders the index template successfully', :skip_user_create do
     	get :index
       expect(response).to be_success
     end
 
-    it "renders the index template" do
+    it "renders the index template", :skip_user_create do
       get :index
       expect(response).to render_template("index")
     end
@@ -27,15 +29,15 @@ RSpec.describe UsersController, :type => :controller do
 	end
 
 	describe "GET new" do
-		it "renders the new form for a user" do
+		it "renders the new form for a user", :skip_user_create do
 			get :new
       expect(response).to render_template("new")
 		end
 	end
 
 	describe "POST create" do
-		it "render to the root if a user is successfully created" do
-			post :create, params: { user: {username: 'bencaneba', password: 'password', first_name: 'Ben', last_name: 'Caneba', email: 'ben_caneba@kleinschmidt.com', phone: '9062314010', tutor: 'true'}}
+		it "render to the root if a user is successfully created", :skip_user_create do
+			post :create, params: { user: FactoryGirl.attributes_for(:user)}
       # expect(response).to be_success
 		end
 	end
