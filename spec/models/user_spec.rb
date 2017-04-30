@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe User, :type => :model do
 	# test user associations are working
-  it { should have_one(:is_tutor) }
+  it { should have_many(:is_tutors) }
   it { should have_many(:posts) }
   it { should have_many(:schools).through(:user_school) }
   it { should have_many(:courses).through(:user_course) }
@@ -39,6 +39,11 @@ RSpec.describe User, :type => :model do
   	user = FactoryGirl.build(:user, email: "jpan@yahoo.com", username: "jpan", phone: nil)
     expect(user).to_not be_valid
 	end
+
+  it "a user without a tutor should not be created" do
+    user = FactoryGirl.build(:user, email: "hyperbits@yahoo.com", username: "hyperbits", tutor: nil)
+    expect(user).to_not be_valid
+  end
 
 
 

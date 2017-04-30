@@ -6,6 +6,7 @@ class User < ApplicationRecord
 	validates :email, presence: true, uniqueness: true
 	validates :phone, presence: true
 	validates :username, presence: true, uniqueness: true
+	validates :tutor, presence: true
 
 	# User has many posts
 	has_many :posts, dependent: :destroy
@@ -29,6 +30,6 @@ class User < ApplicationRecord
 	has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
 	# determine if a user is a tutor of a course
-	has_one :is_tutor
+	has_many :is_tutors
 
 end

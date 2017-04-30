@@ -35,7 +35,7 @@ RSpec.describe UsersController, :type => :controller do
 
 	describe "POST create" do
 		it "render to the root if a user is successfully created" do
-			post :create, params: { user: {username: 'bencaneba', password: 'password', first_name: 'Ben', last_name: 'Caneba', email: 'ben_caneba@kleinschmidt.com', phone: '9062314010'}}
+			post :create, params: { user: {username: 'bencaneba', password: 'password', first_name: 'Ben', last_name: 'Caneba', email: 'ben_caneba@kleinschmidt.com', phone: '9062314010', tutor: 'true'}}
       # expect(response).to be_success
 		end
 	end
