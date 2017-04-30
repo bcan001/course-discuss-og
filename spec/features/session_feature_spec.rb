@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "the signin and sign out process", :type => :feature do
 
   before :each do
-    @user = User.create(first_name: 'Bob', last_name: 'Johnson', email: 'bob@cnn.com', phone: '7236781848', username: 'bjohnson', password: 'password')
+    @user = User.create(first_name: 'Bob', last_name: 'Johnson', email: 'bob@cnn.com', phone: '7236781848', username: 'bjohnson', password: 'password', tutor: 'false')
   end
 
   it "signs me in" do

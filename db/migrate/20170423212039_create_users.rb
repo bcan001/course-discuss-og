@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :phone
       t.string :username
       t.string :password_digest
+      t.string :tutor
       t.timestamps null: false
     end
   end

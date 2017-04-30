@@ -1,13 +1,12 @@
-<% if flash[:notice] %>
-  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
-<% end %>
+<div class="row">
+	<div class="medium-12 columns">
+		<% if flash[:notice] %>
+		  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+		<% end %>
+	</div>
+</div>
 
 
-<% if current_user %>
-	<%= link_to 'Log Out', log_out_path, class: 'btn btn-primary'  %>
-<% else %>
-	<%= link_to 'Login', login_path, class: 'btn btn-primary'  %>
-<% end %>
 
 <% if Rails.env.test? == true %>
 	<%= link_to 'Log Out', log_out_path, class: 'btn btn-primary'  %>

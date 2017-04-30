@@ -1,14 +1,27 @@
-<% if flash[:notice] %>
-  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
-<% end %>
-
-<div id='session'>
-	<%= form_for(:session, url: { action: 'create' }) do |f| %>
-	  <p><%= f.text_field(:username, :size => 40, :placeholder => "Username") %></p>
-	  <p><%= f.password_field :password, :size => 40, :placeholder => "Password" %></p>
-	  <p><%= f.submit 'Log In', class: "btn btn-primary" %></p>
-	<% end %>
-
-	<h5>Don't have an account?</h5>
-	<%= link_to 'Sign up for an account', new_user_path %>
+<div class="row">
+	<div class="medium-12 columns">
+		<% if flash[:notice] %>
+		  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+		<% end %>
+	</div>
 </div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<div id='session'>
+			<%= form_for(:session, url: { action: 'create' }) do |f| %>
+			  <p><%= f.text_field(:username, :size => 40, :placeholder => "Username") %></p>
+			  <p><%= f.password_field :password, :size => 40, :placeholder => "Password" %></p>
+			  <p><%= f.submit 'Log In', class: "btn btn-primary" %></p>
+			<% end %>
+
+			<h5>Don't have an account?</h5>
+			<%= link_to 'Sign up for an account', new_user_path %>
+		</div>
+	</div>
+</div>
+
+
+
+
+
