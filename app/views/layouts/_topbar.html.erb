@@ -1,18 +1,24 @@
 <div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Course Discuss</li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li>
-      	<% if current_user %>
-					<%= link_to 'Log Out', log_out_path, class: 'btn btn-primary'  %>
-				<% else %>
-					<%= link_to 'Login', login_path, class: 'btn btn-primary'  %>
-				<% end %>
-			</li>
-    </ul>
+  <div class="row">
+    <div class="top-bar-left">
+      <%= link_to image_tag("course-discuss-logo.png", class: "logo", :alt => "logo"), root_path %>
+    </div>
+    <div class="top-bar-right">
+      <div class="row">
+        <div class="medium-12 columns">
+          <% if current_user %>
+            <%= link_to fa_icon("sign-out", text: 'Home'),root_path %>
+            <%= link_to fa_icon("sign-out", text: 'About'),root_path %>
+            <%= link_to fa_icon("sign-out", text: 'Log Out'),log_out_path %>
+          <% else %>
+            <%= link_to fa_icon("home", text: 'Home'),root_path %>
+            <%= link_to fa_icon("sign-out", text: 'About'),root_path %>
+            <%= link_to fa_icon("sign-in", text: 'Log In'),login_path %>
+            <%= link_to fa_icon("sign-in", text: 'Sign Up'),new_user_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
