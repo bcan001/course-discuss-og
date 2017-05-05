@@ -14,10 +14,10 @@ describe 'schools/index.html.erb' do
 		end
 	end
 
-  it 'displays schools correctly' do
-    render
-    expect(rendered).to have_content(@schools.first.name)
-  end
+  # it 'displays schools correctly' do
+  #   render
+  #   expect(rendered).to have_content(@schools.first.name)
+  # end
 
 
 end

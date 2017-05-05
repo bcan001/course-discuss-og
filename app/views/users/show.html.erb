@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="medium-12 columns">
+		<h3>My Profile Page</h3>
+	</div>
+</div>
+
+<% if flash[:notice] %>
+  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+<% end %>
+
+<div class="row">
+	<div class="medium-6 columns">
+
+		<h4>My Profile Info</h4>
+
+		<%= gravatar_image_tag(@user.email) %>
+
+		<p><strong>First Name:</strong> <%= '@user.first_name' %></p>
+		<p><strong>Last Name:</strong> <%= @user.last_name %></p>
+		<p><strong>Email:</strong> <%= @user.email %></p>
+		<p><strong>Phone:</strong> <%= @user.phone %></p>
+		<p><strong>Username:</strong> <%= @user.username %></p>
+
+		<%= link_to 'Edit Profile', edit_user_path(current_user), class: 'button medium' %>
+
+	</div>
+	<div class="medium-6 columns">
+		<h4>My Favorite Courses</h4>
+		
+
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="medium-12 columns">
+		<h4>My Schools</h4>
+		
+		<% @user.schools.each do |school| %>
+			<h4><%= link_to school.name, school_path(school) %> </h4>
+		<% end %>
+		<%= link_to "Add a new school to my list", select_school_path(@user)%>
+
+	</div>
+</div>
+
+
+
