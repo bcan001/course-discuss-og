@@ -21,12 +21,12 @@ RSpec.describe UsersController, :type => :controller do
     end
   end
 
-	describe "GET show" do
-		it "renders the show template" do
-      get :show, params: { id: @user.id }
-      expect(response).to render_template("show")
-    end
-	end
+	# describe "GET show" do
+	# 	it "renders the show template" do
+ #      get :show, params: { id: @user.id }
+ #      expect(response).to render_template("show")
+ #    end
+	# end
 
 	describe "GET new" do
 		it "renders the new form for a user", :skip_user_create do

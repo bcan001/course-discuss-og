@@ -9,6 +9,7 @@
           <% if current_user %>
             <%= link_to fa_icon("sign-out", text: 'Home'),root_path %>
             <%= link_to fa_icon("sign-out", text: 'About'),root_path %>
+            <%= link_to fa_icon("sign-out", text: 'My Profile'), user_path(current_user) %>
             <%= link_to fa_icon("sign-out", text: 'Log Out'),log_out_path %>
           <% else %>
             <%= link_to fa_icon("home", text: 'Home'),root_path %>
