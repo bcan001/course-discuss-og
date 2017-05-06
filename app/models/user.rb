@@ -14,6 +14,7 @@ class User < ApplicationRecord
 	# User has many favorite courses
 	has_many :favorites, dependent: :destroy
 
+
 	# User has many Schools through user_school
 	has_many :user_school
 	has_many :schools, :through => :user_school

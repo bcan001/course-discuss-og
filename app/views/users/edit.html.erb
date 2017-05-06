@@ -1,0 +1,26 @@
+<% if flash[:notice] %>
+  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+<% end %>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<h3>Edit Profile</h3>
+	</div>
+</div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<div id='sign-up'>
+			<%= form_for(@user, url: { action: 'update' }) do |f| %>
+			  <div class="field"><%= f.text_field :first_name, :size => 40, :placeholder => "First Name" %></div>
+			  <div class="field"><%= f.text_field :last_name, :size => 40, :placeholder => "Last Name" %></div>
+			  <div class="field"><%= f.text_field :email, :size => 40, :placeholder => "Email" %></div>
+			  <div class="field"><%= f.text_field :phone, :size => 40, :placeholder => "Phone" %></div>
+			  <div class="field"><%= f.text_field :username, :size => 40, :placeholder => "Username" %></div>
+			  <div class="field"><%= f.password_field :password, :size => 40, :placeholder => "Password" %></div>
+			  <%= f.hidden_field :tutor, value: @user.tutor %>
+			  <div class="actions"><%= f.submit 'Update Profile', class: "button medium" %></div>
+			<% end %>
+		</div>
+	</div>
+</div>
