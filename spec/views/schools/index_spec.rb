@@ -12,12 +12,19 @@ describe 'schools/index.html.erb' do
 		unless example.metadata[:skip_initialize_user]
 			assign(:current_user, FactoryGirl.create(:user))
 		end
+		controller.singleton_class.class_eval do
+      protected
+      def current_user
+        FactoryGirl.build_stubbed(:user)
+      end
+      helper_method :current_user
+    end
 	end
 
-  # it 'displays schools correctly' do
-  #   render
-  #   expect(rendered).to have_content(@schools.first.name)
-  # end
+  it 'displays schools correctly' do
+    render
+    expect(rendered).to have_content(@schools.first.name)
+  end
 
 
 end
