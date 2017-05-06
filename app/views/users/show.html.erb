@@ -27,6 +27,10 @@
 	<div class="medium-6 columns">
 		<h4>My Favorite Courses</h4>
 
+		<% @user.favorites.each do |favorite| %>
+			<% @course = Course.find(favorite.course_id) %>
+			<%= link_to @course.name, school_course_path(@course) %>
+		<% end %>
 
 	</div>
 </div>

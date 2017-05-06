@@ -36,6 +36,9 @@ UserSchool.create(user_id: 1, school_id: 1)
 #make our only user take accounting course
 UserCourse.create(user_id: 1, course_id: 1)
 
+# create a favorite course for the user
+Favorite.create(user_id: 1, course_id: 1)
+
 # create a post that belongs to our one user
 Post.create(title: "First Post", description: "This is the first post", user_id: 1, school_id: 1, course_id: 1)
 
