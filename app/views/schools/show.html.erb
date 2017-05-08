@@ -8,6 +8,9 @@
 <div class="row">
 	<div class="medium-16 columns">
 		<h5>Available Courses</h5>
+		<% @school.courses.each do |course| %>
+			<p><%= link_to course.name, school_course_path(@school,course) %></p>
+		<% end %>
 	</div>
 	<div class="medium-16 columns">
 		<h5>Students at <%= @school.name %>:</h5>
