@@ -1,0 +1,15 @@
+<% if flash[:notice] %>
+  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+<% end %>
+
+<h3><%= @course.name %></h3>
+<h4><%= @course.description %></h4>
+
+
+<% if current_user %>
+	<% unless Favorite.where(user_id: current_user.id, course_id: @course.id).any? %>
+		<%= link_to 'Add Course to Favorites', school_course_favorite_path(@school,@course), method: :post, class: "button medium" %>
+	<% end %>
+<% end %>
+
+

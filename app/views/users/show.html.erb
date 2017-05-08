@@ -29,7 +29,8 @@
 
 		<% @user.favorites.each do |favorite| %>
 			<% @course = Course.find(favorite.course_id) %>
-			<%= link_to @course.name, school_course_path(@course) %>
+			<% @school = School.find(@course.school_id) %>
+			<p><%= link_to @course.name, school_course_path(@school,@course) %></p>
 		<% end %>
 
 	</div>
