@@ -1,0 +1,15 @@
+
+<% if flash[:notice] %>
+  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+<% end %>
+
+<div class="row">
+  <div class="medium-12 columns">
+		<%= form_for @user_school do |f| %>
+			<p><%= f.select :school_id, options_from_collection_for_select(@schools, 'id', 'name', @schools[0].id) %></p>
+			<p><%= f.submit 'Add School to your list', class: "button medium" %></p>
+		<% end %>
+  </div> 
+</div>
+
+
