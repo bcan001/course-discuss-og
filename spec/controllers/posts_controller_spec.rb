@@ -19,11 +19,11 @@ RSpec.describe PostsController, :type => :controller do
 		end
 	end
 
-	describe "POST create" do
-		it "render to the root if a school is successfully created" do
-			post :create, params: { post: FactoryGirl.attributes_for(:post), user_id: @user.id, course_id: @course.id, school_id: @school.id}
-      # expect(response).to be_success
-		end
-	end
+	# describe "POST create" do
+	# 	it "render to the root if a school is successfully created" do
+	# 		post :create, params: { post: FactoryGirl.attributes_for(:post), user_id: @user.id, course_id: @course.id, school_id: @school.id}
+ #      # expect(response).to be_success
+	# 	end
+	# end
 
 end

@@ -1,30 +1,15 @@
 class PostsController < ApplicationController
-
-	before_action :set_post, only: [:new,:create]
-
 	def new
 		@post = Post.new
-	end
-
-	def create
-		@post = Post.new(post_params)
-		if @post.save
-      flash[:notice] = 'Post has successfully been created.'
-			redirect_to school_course_path(@school,@course,@post,current_user)
-		else
-      flash[:notice] = 'Please enter all fields correctly.'
-			render 'new'
-		end
-	end
-
-	private
-
-	def set_post
 		@course = Course.find(params[:school_id])
 		@school = School.find(params[:course_id])
 	end
-
-	def post_params
-		params.require(:post).permit(:title, :description, :user_id, :course_id, :school_id)
+	def create
+		@user = User.find(session[:user_id]) if session[:user_id]
+		@course = Course.find(params[:course_id])
+		@school = School.find(params[:school_id])
+		@post = Post.new(user_id: @user.id, school_id: @school.id, course_id: @course.id, title: params[:post][:title], description: params[:post][:description])
+		@post.save
+		redirect_to school_course_path(@school,@course,@post,@user)
 	end
 end

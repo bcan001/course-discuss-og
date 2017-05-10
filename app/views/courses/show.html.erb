@@ -2,7 +2,10 @@
   <p class="notice" style="color:red;"><%= flash[:notice] %></p>
 <% end %>
 
+<h3>name:</h3>
 <h3><%= @course.name %></h3>
+
+<h4>description:</h4>
 <h4><%= @course.description %></h4>
 
 
@@ -12,5 +15,20 @@
 	<% end %>
 <% end %>
 
-
 <!-- allow users to create a post about this course -->
+<h3>Posts about this course:</h3>
+
+<% @course.posts.each do |post| %>
+	<p><%= post.created_at %></p>
+	<p><strong><%= post.title %></strong></p>
+	<p><%= post.description %></p>
+	<p>~ by <%= User.where({id: post.user_id}).first.username %></p>
+<% end %>
+
+
+<% if current_user %>
+	<p><%= link_to "Create New Post", new_school_course_post_path(@school,@course) %></p>
+<% else %>
+	<p><%= link_to "Create New Post", login_path %></p>
+<% end %>
+

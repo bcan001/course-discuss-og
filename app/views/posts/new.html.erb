@@ -1,0 +1,20 @@
+<h1><%= @school.name %></h1>
+<h3><%= @course.name %></h3>
+
+<% if flash[:notice] %>
+  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+<% end %>
+</br>
+
+<h4>Create a new post for this course</h4>
+<%= form_for([@school,@course,@course.posts.build]) do |f| %>
+  <p><%= f.text_field :title, :size => 40, :placeholder => "Title"   %></p>
+
+  <p><%= f.text_area :description, size: "60x12", :placeholder => "Description"   %></p>
+
+  <p><%= f.submit 'Create a New Post', class: 'btn btn-primary'  %></p>
+<% end %>
+
+
+
+
