@@ -30,28 +30,28 @@ RSpec.describe CoursesController, :type => :controller do
 	end
 
 	describe "GET new" do
-		it "renders the new form for a user", :skip_course_create do
+		it "renders the new form for a course", :skip_course_create do
 			get :new, params: { school_id: @school.id }
       expect(response).to render_template("new")
 		end
 	end
 
 	describe "POST create" do
-		it "render to the root if a user is successfully created" do
+		it "render to the root if a course is successfully created" do
 			post :create, params: { id: @course.id, school_id: @school.id, course: FactoryGirl.attributes_for(:course)}
       # expect(response).to be_success
 		end
 	end
 
 	describe "GET edit" do
-		it "renders the edit form for a user" do
+		it "renders the edit form for a course" do
 			get :edit, params: {id: @course.id, school_id: @school.id }
    		# expect(response).to render_template("edit")
 		end
 	end
 
 	describe "PUT update" do
-		it "render to the root if a user is successfully updated" do
+		it "render to the root if a course is successfully updated" do
 			put :update, params: { id: @course.id, school_id: @school.id, course: FactoryGirl.attributes_for(:course) }
       # expect(response).to be_success
 		end
