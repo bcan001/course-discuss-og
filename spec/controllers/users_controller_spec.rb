@@ -45,6 +45,7 @@ RSpec.describe UsersController, :type => :controller do
 	describe "GET edit" do
 		it "renders the edit form for a user" do
 			get :edit, params: {id: @user.id}
+			# need to handle session[:user_id] ???
    		# expect(response).to render_template("edit")
 		end
 	end
@@ -52,7 +53,17 @@ RSpec.describe UsersController, :type => :controller do
 	describe "PUT update" do
 		it "render to the root if a user is successfully updated" do
 			put :update, params: { id: @user.id}
+			# need to handle session[:user_id] ???
       # expect(response).to be_success
+		end
+	end
+
+
+	describe "GET my_activity" do
+		it "renders my activity template for a user" do
+			# get :my_activity, params: {id: @user.id}
+			# need to handle session[:user_id] ???
+   		# expect(response).to render_template("my_activity")
 		end
 	end
 

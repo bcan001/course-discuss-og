@@ -12,8 +12,15 @@ RSpec.describe PostsController, :type => :controller do
 	  end
 	end
 
+	# describe "GET show" do
+	# 	it "renders the post show correctly" do
+	# 		get :show, params: {id: @post.id, course_id: @post.course_id, school_id: @post.school_id}
+	# 		expect(response).to render_template("show")
+	# 	end
+	# end
+
 	describe "GET new" do
-		it "renders the new form for a school" do
+		it "renders the new form for a post" do
 			get :new, params: {user_id: @user.id, course_id: @course.id, school_id: @school.id}
       expect(response).to render_template("new")
 		end

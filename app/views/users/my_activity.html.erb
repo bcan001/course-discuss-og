@@ -1,0 +1,36 @@
+<% if flash[:notice] %>
+  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+<% end %>
+
+<div class="row">
+	<div class="medium-6 columns">
+		<h3>My Recent Posts:</h3>
+
+		<% @user.posts.limit(5).each do |post| %>
+			<p><strong><%= display_datetime(post.created_at) %></strong></p>
+			<p><%= link_to post.school.name, school_path(post.school) %></p>
+			<p><%= post.course.name %></p>
+			<p><strong><%= link_to post.title, school_course_post_path(post.school_id,post.course_id,post) %></strong></p>
+			<p><%= post.description %></p>
+		<% end %>
+
+	</div>
+	<div class="medium-6 columns">
+		<h3>People I'm Following:</h3>
+
+		<% @user.friendships.each do |friendship| %>
+			<%= gravatar_image_tag(friendship.friend.email) %>
+			
+			<p><%= link_to friendship.friend.username, other_user_path(friendship.friend) %></p>
+			<p><%= friendship.friend.email %></p>
+			<% friendship.friend.schools.limit(1).each do |school| %>
+				<p><%= link_to school.name, school_path(school) %></p>
+			<% end %>
+			<p><%= link_to 'Stop Following', destroy_friend_path(friendship), :method => :delete, class: 'button medium' %></p>
+
+		<% end %>
+		<%= link_to 'view all students online here', users_path %>
+
+	</div>
+</div>
+

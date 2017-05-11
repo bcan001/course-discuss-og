@@ -26,7 +26,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/myschools/:id', to: 'users#profile_schools', as: 'my_schools'
+  get '/myactivity/:id', to: 'users#my_activity', as: 'my_activity'
+
   get '/about', to: 'users#about', as: 'about'
   get '/allschools', to: 'schools#all_schools', as: 'all_schools'
 
