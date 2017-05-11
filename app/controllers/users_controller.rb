@@ -44,9 +44,24 @@ class UsersController < ApplicationController
 	def destroy
 	end
 
+	# methods for my activity page
+	def my_activity
+		@user = User.find(session[:user_id]) if session[:user_id]
+		@schools = @user.schools
+		@courses = Course.all
+	end
+
+
+
 	private
 	def user_params
 		params.require(:user).permit(:username, :password, :first_name, :last_name, :email, :phone, :tutor)
 	end
 
 end
+
+
+
+
+
+

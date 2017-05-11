@@ -13,6 +13,13 @@ describe 'schools/show.html.erb' do
 		unless example.metadata[:skip_initialize_school]
 			@school = FactoryGirl.create(:school)
 		end
+		controller.singleton_class.class_eval do
+      protected
+      def current_user
+        FactoryGirl.build_stubbed(:user)
+      end
+      helper_method :current_user
+    end
 	end
 
   it 'displays school correctly' do

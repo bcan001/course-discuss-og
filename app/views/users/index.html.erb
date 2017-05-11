@@ -1,0 +1,18 @@
+<% if flash[:notice] %>
+  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
+<% end %>
+
+<h5>This is a list of all the students that have signed up to use the website.</h5>
+
+<% @users.each do |user| %>
+
+	<%= gravatar_image_tag(user.email) %>
+	<p><%= link_to user.username, other_user_path(user) %></p>
+
+	<% user.schools.limit(1).each do |school| %>
+		<p><%= link_to school.name, school_path(school) %></p>
+	<% end %>
+	
+	<p><%= link_to "Follow #{user.username}", friendships_path(:friend_id => user), :method => :post, class: 'button medium' %></p>
+
+<% end %>
