@@ -2,14 +2,14 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@school = School.find(@post.school_id)
-		@course = Course.find(@post.course_id)
+		@school = @post.school
+		@course = @post.course
 	end
 
 	def new
-		@post = Post.new
-		@course = Course.find(params[:course_id])
-		@school = School.find(params[:school_id])
+		@post = Post.new(course_id: params[:course_id], school_id: params[:school_id])
+		@course = @post.course
+		@school = @post.school
 	end
 
 	def create
