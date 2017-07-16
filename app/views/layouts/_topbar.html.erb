@@ -1,20 +1,20 @@
 <div class="top-bar">
   <div class="row">
     <div class="top-bar-left">
-      <%= link_to image_tag("course-discuss-logo.png", class: "logo", :alt => "logo"), root_path %>
+      <%= link_to image_tag("logo.png", class: "logo", :alt => "logo"), root_path %>
     </div>
     <div class="top-bar-right">
       <div class="row">
         <div class="medium-12 columns">
           <% if current_user %>
-            <%= link_to fa_icon("home", text: 'Home'),root_path %>
-            <%= link_to fa_icon("my-profile", text: 'My Profile'), user_path(current_user) %>
-            <%= link_to fa_icon("my-activity", text: 'My Activity'), my_activity_path(current_user) %>
-            <%= link_to fa_icon("log-out", text: 'Log Out'),log_out_path %>
+            <%= link_to 'Home',root_path, class: 'topbar-text-button' %>
+            <%= link_to 'My Profile', user_path(current_user), class: 'topbar-text-button' %>
+            <%= link_to 'My Activity', my_activity_path(current_user), class: 'topbar-text-button' %>
+            <%= link_to 'Log Out',log_out_path, class: 'topbar-text-button' %>
           <% else %>
-            <%= link_to fa_icon("home", text: 'Home'),root_path %>
-            <%= link_to fa_icon("log-in", text: 'Log In'),login_path %>
-            <%= link_to fa_icon("sign-up", text: 'Sign Up'),new_user_path %>
+            <%= link_to 'Home',root_path, class: 'topbar-text-button' %>
+            <%= link_to 'Log In',login_path, class: 'topbar-text-button' %>
+            <%= link_to 'Sign Up',new_user_path, class: 'topbar-text-button' %>
           <% end %>
         </div>
       </div>

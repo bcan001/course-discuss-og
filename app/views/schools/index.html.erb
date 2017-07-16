@@ -6,28 +6,67 @@
 	</div>
 </div>
 
+<div class="row ctr pad2">
+	<h3 style="font-weight: bold;">What school are you looking for?</h3>
+</div>
+
+<div class="row ctr pad1">
+	<%= form_tag schools_path do %>
+		<div class="medium-3 columns">&nbsp;</div>
+		<div class="medium-5 columns">
+			<%= text_field_tag :school_search, '',{class: 'school-search-box', style: 'width:100%;'} %>
+		</div>
+		<div class="medium-1 columns">
+			<%= submit_tag 'Find School', class: 'button medium' %>
+		</div>
+		<div class="medium-3 columns">&nbsp;</div>
+	<% end %>
+</div>
+
+<div class="row ctr pad1">
+	<h6><%= link_to "Can't find your school? Add it to Course Discuss!", root_path %></h6>
+</div>
+
+<div class="row ctr pad2">
+	<%= link_to image_tag("illustration.png", class: "", :alt => "logo"), root_path %>
+</div>
+
 <% if current_user %>
-	<div class="row">
-		<div class="medium-12 columns">
-			<h2>NEWS FEED</h2>
+	<div class="row pad2">
+		<div class="medium-12 columns ctr">
+			<h4>NEWS FEED</h4>
+
 		</div>
 	</div>
 	
 <% else %>
-	<div class="row">
-		<div class="medium-12 columns">
-			<%= link_to 'Login', login_path %> or <%= link_to 'Sign Up', new_user_path %>
+	<div class="row pad2">
+		<div class="medium-12 columns ctr">
+			<h5><%= link_to 'Login', login_path %> or <%= link_to 'Sign Up', new_user_path %></h5>
 		</div>
 	</div>
 <% end %>
 
 
-<div class="row">
-	<div class="medium-6 columns">
+<div class="row pad2">
+	<div class="medium-12 columns ctr">
 		<h4>Connect with your classmates and discuss your University courses!</h4>
 		<!-- pictures go here, right under text -->
+    <div class="row pad2 ctr">
+      <div class="medium-3 columns"><%= link_to(image_tag("Michigan_State_Universiy.jpg", :alt => "pic", style: "width:100%; height:260px;"), image_path(root_path, class: "img-responsive")) %>
+      </div>
+      <div class="medium-3 columns"><%= link_to(image_tag("Alabama-State-University.jpg", :alt => "pic", style: "width:100%; height:260px;"), image_path(root_path, class: "img-responsive")) %>
+      </div>
+      <div class="medium-3 columns"><%= link_to(image_tag("Indiana-state.jpg", :alt => "pic", style: "width:100%; height:260px;"), image_path(root_path, class: "img-responsive")) %>
+      </div>
+      <div class="medium-3 columns"><%= link_to(image_tag("columbiacollege.jpg", :alt => "pic", style: "width:100%; height:260px;"), image_path(root_path, class: "img-responsive")) %>
+      </div>
+    </div>
 	</div>
-	<div class="medium-6 columns">
+</div>
+
+<div class="row pad2">
+	<div class="medium-12 columns ctr">
 		<h4>Some of our supported schools:</h4>
 		<% @schools.each do |school| %>
 			<p><%= link_to school.name, school_path(school) %></p>
@@ -36,10 +75,20 @@
 </div>
 
 
+<div class="row column footer">
+  <div class="float-right">Copyright 2017</div>
+</div>
+
 
 
 
 <% if Rails.env.test? == true %>
 	<%= link_to 'Log Out', log_out_path, class: 'btn btn-primary'  %>
 <% end %>
+
+
+
+
+
+
 
