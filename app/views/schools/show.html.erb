@@ -28,9 +28,9 @@
 	<div class="medium-12 columns">
 		<h5>Don't see your course?</h5>
 		<% if current_user %>
-		  <%= link_to 'Add your course', new_school_course_path(@school,@course) %>
+		  <%= link_to 'Add your course', new_school_course_path(@school,@course), class: 'button medium' %>
 		<% else %>
-		  <%= link_to 'Add your course', login_path %>
+		  <%= link_to 'Add your course', login_path, class: 'button medium' %>
 		<% end %>
 	</div>
 </div>

@@ -1,7 +1,16 @@
-<h4>Show Post</h4>
+<div class="row ctr">
+	<div class="medium-12 columns">
+		<h4>Show Post</h4>
+	</div>
+</div>
 
-<p><strong><%= display_datetime(@post.created_at) %></strong></p>
-<p><%= link_to @school.name, school_path(@school) %></p>
-<p><%= @course.name %></p>
-<p><strong><%= @post.title %></strong></p>
-<p><%= @post.description %></p>
+<div class="row pad2 nomargin">
+	<div class="medium-12 columns">
+		<p><strong><%= display_datetime(@post.created_at) %></strong></p>
+		<p><%= link_to @school.name, school_path(@school) %></p>
+		<p><%= @course.name %></p>
+		<p><strong><%= @post.title %></strong></p>
+		<p><%= @post.description %></p>
+	</div>
+</div>
+
