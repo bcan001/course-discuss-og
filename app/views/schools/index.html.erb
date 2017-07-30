@@ -1,11 +1,3 @@
-<div class="row">
-	<div class="medium-12 columns">
-		<% if flash[:notice] %>
-		  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
-		<% end %>
-	</div>
-</div>
-
 <div class="row ctr pad2">
 	<h3 style="font-weight: bold;">What school are you looking for?</h3>
 </div>
@@ -68,17 +60,13 @@
 <div class="row pad2">
 	<div class="medium-12 columns ctr">
 		<h4>Some of our supported schools:</h4>
-		<% @schools.each do |school| %>
-			<p><%= link_to school.name, school_path(school) %></p>
-		<% end %>
+		<div class="pad2">
+			<% @schools.each do |school| %>
+				<p><%= link_to school.name, school_path(school) %></p>
+			<% end %>
+		</div>
 	</div>
 </div>
-
-
-<div class="row column footer">
-  <div class="float-right">Copyright 2017</div>
-</div>
-
 
 
 

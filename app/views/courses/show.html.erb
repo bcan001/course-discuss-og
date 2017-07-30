@@ -1,34 +1,46 @@
-<% if flash[:notice] %>
-  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
-<% end %>
+<div class="row ctr">
+	<div class="medium-12 columns">
+		<h3><%= @course.name %> at <%= @school.name %></h3>
+		<h4><%= @course.description %></h4>
+	</div>
+</div>
 
-<h3>name:</h3>
-<h3><%= @course.name %> at <%= @school.name %></h3>
+<div class="row pad2">
+	<div class="medium-12 columns">
+		<% if current_user %>
+			<% unless Favorite.where(user_id: current_user.id, course_id: @course.id).any? %>
+				<%= link_to 'Add Course to Favorites', school_course_favorite_path(@school,@course), method: :post, class: "button medium" %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
 
-<h4>description:</h4>
-<h4><%= @course.description %></h4>
-
-
-<% if current_user %>
-	<% unless Favorite.where(user_id: current_user.id, course_id: @course.id).any? %>
-		<%= link_to 'Add Course to Favorites', school_course_favorite_path(@school,@course), method: :post, class: "button medium" %>
-	<% end %>
-<% end %>
 
 <!-- allow users to create a post about this course -->
-<h3>Posts about this course:</h3>
+<div class="row pad2">
+	<div class="medium-12 columns">
+		<h3>Posts about this course:</h3>
+	</div>
+</div>
+
 
 <% @course.posts.each do |post| %>
-	<p><%= post.created_at %></p>
-	<p><strong><%= post.title %></strong></p>
-	<p><%= post.description %></p>
-	<p>~ by <%= User.where({id: post.user_id}).first.username %></p>
+	<div class="row pad25">
+		<div class="medium-12 columns">
+			<p><%= post.created_at %></p>
+			<p><strong><%= post.title %></strong></p>
+			<p><%= post.description %></p>
+			<p>~ by <%= link_to User.where({id: post.user_id}).first.username, user_path(User.where({id: post.user_id}).first) %></p>
+		</div>
+	</div>
 <% end %>
 
-
-<% if current_user %>
-	<p><%= link_to "Create New Post", new_school_course_post_path(@school,@course) %></p>
-<% else %>
-	<p><%= link_to "Create New Post", login_path %></p>
-<% end %>
-
+<div class="row pad2">
+	<div class="medium-12 columns">
+		<% if current_user %>
+			<p><%= link_to "Create New Post", new_school_course_post_path(@school,@course), class: 'button medium' %></p>
+		<% else %>
+			<p><%= link_to "Create New Post", login_path, class: 'button medium' %></p>
+		<% end %>
+	</div>
+</div>

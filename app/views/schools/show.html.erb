@@ -1,18 +1,21 @@
-<% if flash[:notice] %>
-  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
-<% end %>
+<div class="row ctr">
+	<div class="medium-12 columns">
+		<h3><%= @school.name %></h3>
+		<h4><%= @school.location %>, <%= @school.state %></h4>
+	</div>
+</div>
 
-<h3><%= @school.name %></h3>
-<h4><%= @school.location %>, <%= @school.state %></h4>
-
-<div class="row">
-	<div class="medium-16 columns">
+<div class="row pad2">
+	<div class="medium-12 columns">
 		<h5>Available Courses</h5>
 		<% @school.courses.each do |course| %>
 			<p><%= link_to course.name, school_course_path(@school,course) %></p>
 		<% end %>
 	</div>
-	<div class="medium-16 columns">
+</div>
+
+<div class="row pad2">
+	<div class="medium-12 columns">
 		<h5>Students at <%= @school.name %>:</h5>
 		<% @users.each do |user| %>
       <p><%= link_to user.username, user_path(user) %></p>
@@ -21,9 +24,14 @@
 </div>
 
 
-<h4>Don't see your course?</h4>
-<% if current_user %>
-  <%= link_to 'add your course', new_school_course_path(@school,@course) %>
-<% else %>
-  <%= link_to 'add your course', login_path %>
-<% end %>
+<div class="row pad2">
+	<div class="medium-12 columns">
+		<h5>Don't see your course?</h5>
+		<% if current_user %>
+		  <%= link_to 'Add your course', new_school_course_path(@school,@course) %>
+		<% else %>
+		  <%= link_to 'Add your course', login_path %>
+		<% end %>
+	</div>
+</div>
+

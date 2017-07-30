@@ -1,53 +1,65 @@
-<div class="row">
+<div class="row ctr">
 	<div class="medium-12 columns">
 		<h3>My Profile Page</h3>
 	</div>
 </div>
 
-<% if flash[:notice] %>
-  <p class="notice" style="color:red;"><%= flash[:notice] %></p>
-<% end %>
-
-<div class="row">
+<div class="row pad2">
 	<div class="medium-6 columns">
 
 		<h4>My Profile Info</h4>
 
+		<div class="pad5">
 		<%= gravatar_image_tag(@user.email) %>
 
-		<p><strong>First Name:</strong> <%= @user.first_name %></p>
-		<p><strong>Last Name:</strong> <%= @user.last_name %></p>
-		<p><strong>Email:</strong> <%= @user.email %></p>
-		<p><strong>Phone:</strong> <%= @user.phone %></p>
-		<p><strong>Username:</strong> <%= @user.username %></p>
-
+			<p><strong>First Name:</strong> <%= @user.first_name %></p>
+			<p><strong>Last Name:</strong> <%= @user.last_name %></p>
+			<p><strong>Email:</strong> <%= @user.email %></p>
+			<p><strong>Phone:</strong> <%= @user.phone %></p>
+			<p><strong>Username:</strong> <%= @user.username %></p>
+		</div>
 		<%= link_to 'Edit Profile', edit_user_path(current_user), class: 'button medium' %>
 
 	</div>
 	<div class="medium-6 columns">
 		<h4>My Favorite Courses</h4>
 
-		<% @user.favorites.each do |favorite| %>
-			<% @course = Course.find(favorite.course_id) %>
-			<% @school = School.find(@course.school_id) %>
-			<p><%= link_to @course.name, school_course_path(@school,@course) %> </p>
-		<% end %>
+		<div class="pad5">
+			<% @user.favorites.each do |favorite| %>
+				<div class="row nomargin pad5">
+					<div class="medium-12 columns">
+						<% @course = Course.find(favorite.course_id) %>
+						<% @school = School.find(@course.school_id) %>
+						<p><%= link_to @course.name, school_course_path(@school,@course) %> </p>
+					</div>
+				</div>
+			<% end %>
+		</div>
 
 	</div>
 </div>
 
-
-<div class="row">
+<div class="row pad2">
 	<div class="medium-12 columns">
 		<h4>My Schools</h4>
-		
-		<% @user.schools.each do |school| %>
-			<h4><%= link_to school.name, school_path(school) %> </h4>
-		<% end %>
-		<%= link_to "Add a new school to my list", select_school_path(@user)%>
-
 	</div>
 </div>
+
+<% @user.schools.each do |school| %>
+	<div class="row nomargin pad5">
+		<div class="medium-12 columns">
+			<h5><%= link_to school.name, school_path(school) %> </h5>
+		</div>
+	</div>
+<% end %>
+
+<div class="row nomargin pad75">
+	<div class="medium-12 columns">
+		<%= link_to "Add a new school to my list", select_school_path(@user), class: 'button medium' %>
+	</div>
+</div>
+
+	
 
 
 
